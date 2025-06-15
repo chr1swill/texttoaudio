@@ -1,0 +1,9 @@
+venv/
+Kokoro82M
+Kokoro-82M
+whisper
+wave-pieces
+input/
+output/
+schedule.txt
+*.wav
