@@ -17,7 +17,7 @@ else:
     text = sys.argv[1]
     output_wav = sys.argv[2]
     print(f'text={text}')
-    print(f'output_pdf="{output_wav}"')
+    print(f'output_wav="{output_wav}"')
 
 words = text.split()
 segments = []
@@ -44,6 +44,7 @@ VOICE_NAME = [
 VOICEPACK = torch.load(
     f'Kokoro-82M/voices/{VOICE_NAME}.pt', weights_only=True).to(device)
 print(f'Loaded voice: {VOICE_NAME}')
+
 wav_pieces_dir = "./wav-pieces/"
 ffmpeg_inputs_file_path = wav_pieces_dir + "myinput.txt"
 try:
@@ -90,6 +91,7 @@ ffmpeg_command = "ffmpeg -f concat -safe 0 -i " + ffmpeg_inputs_file_path + \
 print(f"Executing ffmpeg command:\n\t{ffmpeg_command}")
 os.system(ffmpeg_command)
 
+exit(0);
 # whisper_command = "whisper " + output_path + \
 #     "final_output.wav --model tiny --output_dir " + \
 #     output_path + "subtitles"
